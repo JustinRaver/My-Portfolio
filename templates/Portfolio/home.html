@@ -1,0 +1,39 @@
+{% extends 'Portfolio/base.html' %}
+{% block content %}
+    {% load static %}
+    <div class="row justify-content-center my-3">
+        <div>
+            <img id="profilePic" class="rounded-circle img-fluid" src="{% static 'portfolio/profilePic.jpeg' %}"
+                 alt="profilePic" data-holder-rendered="true">
+        </div>
+    </div>
+
+    <div class="row justify-content-center mb-3">
+        <div class="col-md-9 text-center">
+            <h2 id="hometext" class="font-weight-bold"> Web Developer: Rohner Finishing Systems</h2>
+        </div>
+    </div>
+
+    <h2 class="mt-5 ml-2">Portfolio</h2>
+    <hr>
+    <div class="row mb-2">
+        {% for p in projects %}
+            <div class="col-md-6">
+                <div class="card flex-md-row mb-4 box-shadow h-md250">
+                    {% if p.url %}
+                        <a href="{{ p.url }}">
+                            <img src="{{ p.image.url }}" class="card-img-left flex-auto d-non d-md-block"
+                                 alt="projImage">
+                        </a>
+                    {% else %}
+                        <img src="{{ p.image.url }}" class="card-img-left flex-auto d-non d-md-block" alt="projImage">
+                    {% endif %}
+                    <div class="card-body d-flex flex-column align-items-start">
+                        <h3 class="d-inline-block mb-2">{{ p.title }}</h3>
+                        <p class="card-text mb-auto">{{ p.description }}</p>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}
