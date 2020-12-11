@@ -80,7 +80,7 @@ WSGI_APPLICATION = 'MyPortfolio.wsgi.application'
 DATABASES = {
     'default': config(
         'DATABASE_URL',
-        default='sqlite:///' + '/Users/justinraver/PycharmProjects/MyPortfolio/db.sqlite3',
+        default='sqlite:///' + config('LOCAL_DEFAULT_URL'),
         cast=db_url
     )
 }
