@@ -25,3 +25,7 @@ body {
     max-height: 300px;
 }
 
+#projectCard {
+    max-width: 20rem;
+}
+
